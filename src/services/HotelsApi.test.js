@@ -17,6 +17,6 @@ beforeEach(function () {
 
 });
 it("fetch", async function () {
-    const response = await HotelsApi.fetchHotels();
+    const response = await new HotelsApi().fetchHotels();
     expect(response.Id).toBe('123');
 });

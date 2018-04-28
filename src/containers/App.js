@@ -47,6 +47,7 @@ class App extends Component {
         });
         return available;
       });
+      console.log(filteredHotels)      
       filteredHotels.length === 0
         ? this.setState({ 
           searchResultNotFound: true,
