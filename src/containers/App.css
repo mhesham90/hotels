@@ -1,0 +1,15 @@
+
+.root{
+  padding: 24px;
+  margin: 24px
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap
+}
+.textField {
+  margin-left:  12px !important;
+  margin-right:   12px !important;
+ 
+}

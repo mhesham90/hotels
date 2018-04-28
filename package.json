@@ -4,14 +4,21 @@
   "homepage": "https://mhesham90.github.io/hotels/",
   "private": true,
   "dependencies": {
+    "material-ui": "^1.0.0-beta.43",
+    "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.3.2",
+    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom --coverage",
+    "test": "react-scripts test --env=jsdom --coverage ",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
   }
 }
