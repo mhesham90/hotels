@@ -32,48 +32,41 @@ class HotelSearch extends React.Component {
 		return (
 			<Paper className="root" elevation={4}>
 				<form className="container" noValidate>
-				<Grid container justify={"center"} >
-
-					<TextField
-						id="fromDate"
-						error={this.state.dateError}
-						label="from"
-						type="date"
-						value={this.state.fromDate}
-						onChange={this.checkdate}
-						className="textField"
-						InputLabelProps={{
-							shrink: true
-						}}
-					/>
-					<TextField
-						error={this.state.dateError}
-						id="toDate"
-						label="to"
-						type="date"
-						value={this.state.toDate}
-						className="textField"
-						onChange={this.checkdate}
-						InputLabelProps={{
-							shrink: true
-						}}
-					/>
-					{this.state.dateError && (
-						<p style={{ color: "red" }}> invalid Date entry </p>
-					)}
-					<IconButton
-						color="primary"
-						className="button"
-						onClick={this.search}
-						disabled={!(this.state.toDate
-							&& this.state.fromDate
-							&& !this.state.dateError)}
-					>
-						<SearchIcon />
-					</IconButton>
-				</Grid>
+					<Grid container justify={"center"} >
+						{this.renderDateInput('from')}
+						{this.renderDateInput('to')}
+						{this.state.dateError && (
+							<p style={{ color: "red" }}> invalid Date entry </p>
+						)}
+						<IconButton
+							color="primary"
+							className="button"
+							onClick={this.search}
+							disabled={!(this.state.toDate
+								&& this.state.fromDate
+								&& !this.state.dateError)}
+						>
+							<SearchIcon />
+						</IconButton>
+					</Grid>
 				</form>
 			</Paper>
+		);
+	}
+	renderDateInput(label){
+		return(
+			<TextField
+				id={label+'Date'}
+				error={this.state.dateError}
+				label={label}
+				type="date"
+				value={this.state[label+'Date']}
+				onChange={this.checkdate}
+				className="textField"
+				InputLabelProps={{
+					shrink: true
+				}}
+			/>
 		);
 	}
 }
