@@ -13,3 +13,7 @@
   margin-right:   12px !important;
  
 }
+
+.card {
+  min-width: 275px;
+}
