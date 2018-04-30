@@ -13,7 +13,7 @@ class HotelCard extends React.Component {
             </Typography>
             <Typography className='hotel-card-city'>city : {this.props.hotel.city}</Typography>
             <Typography className='hotel-card-price'>
-              price : {Number((this.props.hotel.price * this.props.nights).toFixed(1))} LE
+              price : {Number((this.props.hotel.price * this.props.nights).toFixed(1))} AED
             </Typography>
           </CardContent>
         </Card>

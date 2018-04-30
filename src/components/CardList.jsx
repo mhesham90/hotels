@@ -7,10 +7,10 @@ class CardList extends React.Component {
   
   render() {
     return (
-      <Grid container spacing={8}>
+      <Grid container className='root' spacing={8}>
         {this.props.hotels.map((hotel, index) => {
           return (
-            <Grid item xs={6} key={index}>
+            <Grid item xs={12} md={6} key={index}>
               <HotelCard hotel={hotel} nights={this.props.nights} />
             </Grid>
           );
