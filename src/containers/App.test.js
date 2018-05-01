@@ -31,12 +31,11 @@ describe('App component', () => {
       expect(wrapper.state('availableHotels')).toBe(null);
     }, 0);
   });
-  it('changes state when sortHotel called', () => {
+  it('changes state when sortHotel and filterHotel called', () => {
+    const filteredState = wrapper.state('filteredHotels')
     wrapper.instance().sortHotel([])
-    expect(wrapper.state('filteredHotels')).toEqual([]);
-  });
-  it('changes state when filterHotel called', () => {
+    expect(filteredState).toEqual([]);
     wrapper.instance().filterHotel([])
-    expect(wrapper.state('filteredHotels')).toEqual([]);
+    expect(filteredState).toEqual([]);
   });  
 })

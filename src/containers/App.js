@@ -24,7 +24,6 @@ class App extends Component {
       <div className="App">
         <Grid container justify={"center"} >
         {this.state.filteredHotels &&
-          // this.state.filteredHotels.length !==0 &&
           this.renderFilter()}
           <Grid item xs={8} >
             {this.renderSearch()}
@@ -41,10 +40,7 @@ class App extends Component {
               )
             )}
             {this.state.searching &&
-              <Grid container spacing={24} alignItems="center" justify="center">
-                <CircularProgress size={80} thickness={5} />
-              </Grid>
-            }
+              this.renderSpinner()}
           </Grid>
         </Grid>
       </div>
@@ -94,6 +90,13 @@ class App extends Component {
           <Typography>Result Not Found</Typography>
         </Grid>
       </Paper>
+    )
+  }
+  renderSpinner = () => {
+    return(
+      <Grid container spacing={24} alignItems="center" justify="center">
+        <CircularProgress size={80} thickness={5} />
+      </Grid>
     )
   }
 

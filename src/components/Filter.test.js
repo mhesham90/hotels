@@ -12,8 +12,9 @@ describe('Sort component', () => {
 
   beforeAll(() => {
     mockFn = jest.fn();
-    wrapper = shallow(<Filter hotels={data.hotels}
-        nights={1}
+    wrapper = shallow(<Filter 
+        nights={10}
+        hotels={[...data.hotels]}
         filterHotels={mockFn} />);
   });
   
@@ -22,21 +23,21 @@ describe('Sort component', () => {
     const priceRange = wrapper.find('#price-range');
     expect(searchName).toHaveLength(1);
     expect(priceRange).toHaveLength(1);
-    expect(priceRange.props().value).toEqual([ 79.4, 112 ]);
+    expect(priceRange.props().value).toEqual([ 794, 1111 ]);
   });
   it('filter functions work properly', () => {
     wrapper.instance().searchName({target:{value: 'rotana'}});
     expect(mockFn.mock.calls[0][0]).toEqual([data.hotels[1]]);
-    wrapper.instance().searchPrice([80, 90]);
+    wrapper.instance().searchPrice([800, 900]);
     expect(mockFn.mock.calls[1][0]).toEqual([data.hotels[1], data.hotels[2]]);
 
   });
   it('setstate after new props sent', () => {
-    wrapper.setProps({ nights: 10 });
-    expect(wrapper.state().nights).toBe(10);
-    expect(wrapper.find('#price-range').props().value).toEqual([ 794, 1111 ]);
+    wrapper.setProps({ nights: 1 });
+    expect(wrapper.state().nights).toBe(1);
+    expect(wrapper.find('#price-range').props().value).toEqual([ 79.4, 112 ]);
     wrapper.setProps({ hotels: data.hotels.slice(0,5) });
-    expect(wrapper.state().fromToPrice).toEqual([ 806, 1111 ]);
+    expect(wrapper.state().fromToPrice).toEqual([ 80.6, 112 ]);
 
   });
   it('filter actions work', () => {

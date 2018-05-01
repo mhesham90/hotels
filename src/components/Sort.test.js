@@ -38,12 +38,13 @@ describe('Sort component', () => {
     wrapper.setProps({ hotels: data.hotels.slice(0,3) });
     wrapper.find('.sort-name').simulate('click')
     expect(sortNameSpy).toBeCalled()
-    expect(wrapper.instance().state['hotels']).toEqual([data.hotels[2],data.hotels[0],data.hotels[1]])
+    const hotelState = wrapper.instance().state['hotels']
+    expect(hotelState).toEqual([data.hotels[2],data.hotels[0],data.hotels[1]])
     wrapper.find('.sort-price').simulate('click')
     expect(sortPriceSpy).toBeCalled()
-    expect(wrapper.instance().state['hotels']).toEqual([data.hotels[1],data.hotels[2],data.hotels[0]])
+    expect(hotelState).toEqual([data.hotels[1],data.hotels[2],data.hotels[0]])
     wrapper.find('.sort-name').simulate('click')
-    expect(wrapper.instance().state['hotels']).toEqual([data.hotels[2],data.hotels[0],data.hotels[1]])    
+    expect(hotelState).toEqual([data.hotels[2],data.hotels[0],data.hotels[1]])    
   });
   afterAll(() => {
     sortNameSpy.restore()
