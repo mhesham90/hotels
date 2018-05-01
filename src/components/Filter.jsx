@@ -20,9 +20,13 @@ class Filter extends React.Component {
   };
 
   getMinMaxPrices(myProps){
-    let prices = myProps.hotels.map((hotel)=>{
-      return hotel.price * myProps.nights
-    })
+    if(myProps.hotels.length !== 0){
+      var prices = myProps.hotels.map((hotel)=>{
+        return hotel.price * myProps.nights
+      })
+    }else{
+      prices = [0,0]
+    }
     return [Math.min(...prices), Math.max(...prices)+1]
   }
   componentWillReceiveProps(nextProps) {
