@@ -30,6 +30,7 @@ class Filter extends React.Component {
       nights: nextProps.nights,
       minMaxPrices: this.getMinMaxPrices(nextProps),
     });
+    // eslint-disable-next-line
     if(nextProps.hotels != this.props.hotels || nextProps.nights !== this.props.nights){
       this.setState({
         fromToPrice:this.getMinMaxPrices(nextProps),
